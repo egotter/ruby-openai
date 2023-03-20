@@ -46,7 +46,8 @@ module OpenAI
     def self.get(path:)
       HTTParty.get(
         uri(path: path),
-        headers: headers
+        headers: headers,
+        timeout: 2
       )
     end
 
@@ -54,7 +55,8 @@ module OpenAI
       HTTParty.post(
         uri(path: path),
         headers: headers,
-        body: parameters&.to_json
+        body: parameters&.to_json,
+        timeout: 2
       )
     end
 
@@ -62,14 +64,16 @@ module OpenAI
       HTTParty.post(
         uri(path: path),
         headers: headers.merge({ "Content-Type" => "multipart/form-data" }),
-        body: parameters
+        body: parameters,
+        timeout: 2
       )
     end
 
     def self.delete(path:)
       HTTParty.delete(
         uri(path: path),
-        headers: headers
+        headers: headers,
+        timeout: 2
       )
     end
 
