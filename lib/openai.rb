@@ -14,6 +14,7 @@ module OpenAI
   class Configuration
     attr_writer :access_token
     attr_accessor :api_version, :organization_id
+    attr_accessor :timeout
 
     DEFAULT_API_VERSION = "v1".freeze
 
@@ -21,6 +22,7 @@ module OpenAI
       @access_token = nil
       @api_version = DEFAULT_API_VERSION
       @organization_id = nil
+      @timeout = 10
     end
 
     def access_token

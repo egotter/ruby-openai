@@ -47,7 +47,7 @@ module OpenAI
       HTTParty.get(
         uri(path: path),
         headers: headers,
-        timeout: 2
+        timeout: OpenAI.configuration.timeout
       )
     end
 
@@ -56,7 +56,7 @@ module OpenAI
         uri(path: path),
         headers: headers,
         body: parameters&.to_json,
-        timeout: 2
+        timeout: OpenAI.configuration.timeout
       )
     end
 
@@ -65,7 +65,7 @@ module OpenAI
         uri(path: path),
         headers: headers.merge({ "Content-Type" => "multipart/form-data" }),
         body: parameters,
-        timeout: 2
+        timeout: OpenAI.configuration.timeout
       )
     end
 
